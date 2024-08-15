@@ -1,1 +1,14 @@
-# python_projects
+# Python projects
+![HTML](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html&logoColor=white) ![CSS](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+
+We have created many projects in python. Most of the work nature is websites & image processing.
+
+## Project Lists
+
+- Read text from image
+- greyscale an image
+
+
+# Author
+
+- [https://linkedin.com/in/delickate][Sani]
