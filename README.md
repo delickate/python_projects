@@ -11,4 +11,4 @@ We have created many projects in python. Most of the work nature is websites & i
 
 # Author
 
-- [https://linkedin.com/in/delickate][Sani]
+- [Sani](https://linkedin.com/in/delickate)
