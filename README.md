@@ -3,7 +3,7 @@
 
 We have created many projects in python. Most of the work nature is websites & image processing.
 
-## Project Lists
+## Projects List
 
 - Read text from image
 - Read blur text from image
