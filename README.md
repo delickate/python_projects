@@ -6,7 +6,7 @@ We have created many projects in python. Most of the work nature is websites & i
 ## Project Lists
 
 - Read text from image
-- greyscale an image
+- Read plur text from image
 
 
 # Author
