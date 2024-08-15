@@ -7,6 +7,7 @@ We have created many projects in python. Most of the work nature is websites & i
 
 - Read text from image
 - Read blur text from image
+- Remove image background
 
 
 # Author
