@@ -5,25 +5,26 @@ import numpy as np
 
 # Read image. 
 img = cv2.imread('circle-ractangle-square.jpg', cv2.IMREAD_COLOR) 
+
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
-blurred = cv2.medianBlur(gray, 25) #cv2.bilateralFilter(gray,10,50,50)
+ret,thresh = cv2.threshold(gray,50,255,0)
+contours,hierarchy = cv2.findContours(thresh, 1, 2)
+print("Number of contours detected:", len(contours))
 
-minDist = 100
-param1 = 30 #500
-param2 = 50 #200 #smaller value-> more false circles
-minRadius = 5
-maxRadius = 100 #10
+for cnt in contours:
+   x1,y1 = cnt[0][0]
+   approx = cv2.approxPolyDP(cnt, 0.01*cv2.arcLength(cnt, True), True)
+   if len(approx) == 4:
+      x, y, w, h = cv2.boundingRect(cnt)
+      ratio = float(w)/h
+      if ratio >= 0.9 and ratio <= 1.1:
+         img = cv2.drawContours(img, [cnt], -1, (0,255,255), 3)
+         cv2.putText(img, 'Square', (x1, y1), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 0), 2)
+      else:
+         cv2.putText(img, 'Rectangle', (x1, y1), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 0), 2)
+         img = cv2.drawContours(img, [cnt], -1, (0,255,0), 3)
 
-# docstring of HoughCircles: HoughCircles(image, method, dp, minDist[, circles[, param1[, param2[, minRadius[, maxRadius]]]]]) -> circles
-circles = cv2.HoughCircles(blurred, cv2.HOUGH_GRADIENT, 1, minDist, param1=param1, param2=param2, minRadius=minRadius, maxRadius=maxRadius)
-
-if circles is not None:
-    circles = np.uint16(np.around(circles))
-    for i in circles[0,:]:
-        cv2.circle(img, (i[0], i[1]), i[2], (0, 255, 0), 2)
-
-# Show result for testing:
-cv2.imshow('img', img)
+cv2.imshow("Shapes", img)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
